@@ -1,1 +1,243 @@
 @import "./utils/resetStyles.css";
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap");
+
+:root {
+  /* Background Color */
+  --btn-primary-clr: #173482;
+  --btn-secondary-clr: #d144f3;
+  --white-bg-clr: #fff;
+  --media-bg-clr: #173482;
+  --background-clr: #061b54;
+  --card-bg-clr: #25469f;
+
+  /* Text Color */
+  --txt-clr-primary: #ffffff;
+
+  /* Font familly */
+  --ff-sans-pro: "Source Serif Pro", serif;
+  --ff-pt-sans: "PT Sans", sans-serif;
+
+  /* Font size */
+  --fs-title-xl: 3.25rem;
+  --fs-title-sm: 2rem;
+  --fs-card-xl: 2.75rem;
+  --fs-card-md: 1.875rem;
+  --fs-regular: 1rem;
+  --fs-sm: 0.813rem;
+
+  /* Timer colors */
+  --circle-default: #173482;
+  --circle-one: #ffc20e;
+  --circle-two: #4f9cd0;
+  --circle-three: #f26066;
+  --circle-four: #3eb96f;
+}
+
+/* Utillity classes  */
+.content {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.width_full {
+  width: 100%;
+}
+
+.outline_btn {
+  outline: 3px solid var(--btn-secondary-clr);
+}
+
+.spacing {
+  padding: 2.625rem 0;
+}
+
+.btn-primary {
+  border-radius: 30px;
+  background-color: var(--btn-primary-clr);
+  color: var(--txt-clr-primary);
+}
+
+/* Header */
+body {
+  background-color: var(--background-clr);
+  color: var(--txt-clr-primary);
+}
+
+.media-top_bar {
+  background-color: var(--media-bg-clr);
+}
+.top-icon_container {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.top-icon_container > img {
+  padding: 0 0.35rem;
+  cursor: pointer;
+}
+
+.timer-and-logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-sm);
+  font-family: var(--ff-pt-sans);
+  font-weight: 700;
+  border-radius: 1.25rem;
+  background-color: var(--white-bg-clr);
+  border: none;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+}
+.header_btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.header_btn span {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.logo-and-burgermenu_images_container {
+  display: flex;
+  align-items: center;
+}
+.logo_header {
+  height: 4.75rem;
+}
+.burger_menu {
+  display: none;
+  height: 2.75rem;
+  cursor: pointer;
+}
+
+.timer {
+  display: flex;
+}
+
+.circle-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.circle {
+  margin-bottom: 0.5rem;
+  width: 63px;
+  height: 63px;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle::before {
+  content: "";
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  border-radius: 50%;
+  background-color: red;
+  background-color: var(--background-clr);
+}
+
+.timer_value {
+  font-family: var(--ff-pt-sans);
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -5%;
+  position: relative;
+}
+.value_desc {
+  font-family: var(--ff-pt-sans);
+  font-size: var(--fs-regular);
+  text-transform: uppercase;
+  background-color: var(--btn-primary-clr);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+.header-img_container {
+  height: 525px;
+}
+.header_img {
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* Tablete */
+@media (max-width: 800px) {
+  .content {
+    min-width: 90%;
+  }
+  .header_btn {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+  }
+  .timer-and-logo_container {
+    flex-direction: column;
+  }
+  .timer {
+    margin-top: 2rem;
+  }
+}
+/* Mobile */
+@media (max-width: 450px) {
+  .content {
+    min-width: 90%;
+  }
+  .top-icon_container {
+    visibility: visible;
+  }
+  .timer-and-logo_container {
+    flex-direction: column;
+  }
+  .header_btn {
+    padding: 0.3rem 1rem;
+  }
+  .logo-and-burgermenu_images_container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .logo_header {
+    height: 2.5rem;
+  }
+  .burger_menu {
+    display: block;
+  }
+  .timer_value {
+    font-size: 2rem;
+  }
+  .value_desc {
+    font-size: 0.75rem;
+  }
+  .circle {
+    width: 38px;
+    height: 38px;
+  }
+  .header-img_container {
+    max-width: 100%;
+  }
+  .header_img {
+    border-radius: 0;
+  }
+}
