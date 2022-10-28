@@ -1,5 +1,5 @@
 // prettier-ignore
-import {HEADER_BTNS_TEXT as headerBtnsText, CARD_DATA as cardData} from "./utils/constants.js";
+import {HEADER_BTNS_TEXT as headerBtnsText, CARD_DATA as cardData, FOOTER_DATA as footerData} from "./utils/constants.js";
 
 ("use strict");
 const circle = document.querySelectorAll(".circle");
@@ -8,6 +8,12 @@ const headerImageContainer = document.querySelector(".header-img_container");
 const headerBtns = document.querySelector(".header-btns");
 const cardContainer = document.querySelector(".card_container");
 const burgerMenu = document.querySelector(".burger-menu_btn");
+const overLay = document.querySelector(".overlay");
+const navBar = document.querySelector(".nav_bar");
+console.log(navBar);
+
+navBar.classList.add("hidden");
+overLay.classList.add("hidden");
 
 // Timer
 let textSec, textMin, textHour, textDay;
@@ -140,38 +146,59 @@ displayCardData();
 window.addEventListener("resize", displayCardData);
 
 function displayBurgerMenu() {
-  const navBar = document.querySelector(".nav_bar");
-  const overLay = document.querySelector(".overlay");
+  // navBarBtns.classList.add("hidden");
+
+  headerBtnsText.map((item) => {
+    const headerBtnsContainer = document.createElement("div");
+    navBar.classList.add("hidden");
+    headerBtnsContainer.innerHTML = `
+        <button type="button" class="btn-primary nav_button">${item}</button>
+      `;
+    navBar.appendChild(headerBtnsContainer);
+  });
+
+  const navBtns = document.querySelectorAll(".nav_button");
+  navBtns[0].style.background = "var(--bg-secondary-clr)";
+  navBtns[4].style.outline = "3px solid var(--bg-secondary-clr)";
+
+  const navCloseBtnContainer = document.createElement("div");
+  navCloseBtnContainer.classList.add("navbar-closebtn_container");
+  navCloseBtnContainer.innerHTML = `<button class="nav-close_btn" >INCHIDE</button>`;
+  navBar.appendChild(navCloseBtnContainer);
 
   burgerMenu.addEventListener("click", () => {
+    overLay.classList.remove("hidden");
     navBar.classList.remove("hidden");
     navBar.style.width = "70vw";
     navBar.style.padding = "3rem 2rem 0 2rem";
-
-    headerBtnsText.map((item) => {
-      const headerBtnsContainer = document.createElement("div");
-      headerBtnsContainer.innerHTML = `
-          <button type="button" class="btn-primary nav_button">${item}</button>
-        `;
-      navBar.appendChild(headerBtnsContainer);
-    });
-
-    const navBtns = document.querySelectorAll(".nav_button");
-    navBtns[0].style.background = "var(--bg-secondary-clr)";
-    navBtns[4].style.outline = "3px solid var(--bg-secondary-clr)";
-
-    const navCloseBtnContainer = document.createElement("div");
-    navCloseBtnContainer.classList.add("navbar-closebtn_container");
-    navCloseBtnContainer.innerHTML = `<button class="nav-close_btn" >INCHIDE</button>`;
-    navBar.appendChild(navCloseBtnContainer);
   });
 
   const closeBtn = document.querySelector(".nav-close_btn");
-  console.log(closeBtn);
   closeBtn.addEventListener("click", () => {
-    overLay.classList.add("hidden");
     navBar.classList.add("hidden");
-    navBar.style.width = "0";
+    overLay.classList.add("hidden");
   });
 }
 displayBurgerMenu();
+
+function displayFooter() {
+  const footerLinksOne = document.querySelector(".footer-links_one");
+  const footerLinksTwo = document.querySelector(".footer-links_two");
+
+  footerData.slice(0, 6).map((item) => {
+    const footerDataOne = document.createElement("div");
+    footerDataOne.innerHTML = `
+        <p class="footer-links_one">${item}</p>
+      `;
+    footerLinksOne.appendChild(footerDataOne);
+  });
+  footerData.slice(6, footerData.length).map((item) => {
+    const footerDataTwo = document.createElement("div");
+    footerDataTwo.innerHTML = `
+        <p class="footer-links_two">${item}</p>
+      `;
+    footerLinksTwo.appendChild(footerDataTwo);
+  });
+}
+
+displayFooter();

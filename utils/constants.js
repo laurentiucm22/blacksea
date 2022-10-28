@@ -147,3 +147,18 @@ export const CARD_DATA = [
     cardBtnText: "VEZI OFERTA",
   },
 ];
+
+export const FOOTER_DATA = [
+  "Guvernanta corporativa",
+  "Info. MIFID II",
+  "Brosura comisioane",
+  "CSALB",
+  "Garantarea depozitelor",
+  "Documente utile",
+  "Lista bancilor corespondente",
+  "ANPC",
+  "Termeni si conditii",
+  "Politica de confidentialitate",
+  "Politica cookies",
+  "Setari cookies",
+];
