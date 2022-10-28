@@ -1,7 +1,5 @@
-import {
-  HEADER_BTNS_TEXT as headerBtnsText,
-  CARD_DATA as cardData,
-} from "./utils/constants.js";
+// prettier-ignore
+import {HEADER_BTNS_TEXT as headerBtnsText, CARD_DATA as cardData} from "./utils/constants.js";
 
 ("use strict");
 const circle = document.querySelectorAll(".circle");
@@ -9,6 +7,7 @@ const timerValue = document.querySelectorAll(".timer_value");
 const headerImageContainer = document.querySelector(".header-img_container");
 const headerBtns = document.querySelector(".header-btns");
 const cardContainer = document.querySelector(".card_container");
+const burgerMenu = document.querySelector(".burger-menu_btn");
 
 // Timer
 let textSec, textMin, textHour, textDay;
@@ -68,13 +67,11 @@ function timerHandler() {
 }
 timerHandler();
 
-// const view = window.matchMedia("(max-width: 450px)");
-
 function showHeaderImage() {
   const desktopHeaderImage = "./assets/headerImg.png";
   const mobileHeaderImage = "./assets/headerImgMobile.png";
 
-  if (window.innerWidth < 450) {
+  if (window.innerWidth < 500) {
     headerImageContainer.innerHTML = `<img class="header_img width_full" src="${mobileHeaderImage}" alt="header image" />`;
   } else {
     headerImageContainer.innerHTML = `<img class="header_img width_full" src="${desktopHeaderImage}" alt="header image" />`;
@@ -129,5 +126,52 @@ function displayCardData() {
   `;
   cardContainer.appendChild(card);
 });
+  const removeCard = document.querySelectorAll(".card");
+  const removeCardDesc = document.querySelectorAll(".card_description");
+
+  if (window.innerWidth < 500) {
+    removeCard[4].style.display = "block";
+    removeCardDesc[4].style.display = "none";
+  } else {
+    removeCard[4].style.display = "none";
+  }
 }
 displayCardData();
+window.addEventListener("resize", displayCardData);
+
+function displayBurgerMenu() {
+  const navBar = document.querySelector(".nav_bar");
+  const overLay = document.querySelector(".overlay");
+
+  burgerMenu.addEventListener("click", () => {
+    navBar.classList.remove("hidden");
+    navBar.style.width = "70vw";
+    navBar.style.padding = "3rem 2rem 0 2rem";
+
+    headerBtnsText.map((item) => {
+      const headerBtnsContainer = document.createElement("div");
+      headerBtnsContainer.innerHTML = `
+          <button type="button" class="btn-primary nav_button">${item}</button>
+        `;
+      navBar.appendChild(headerBtnsContainer);
+    });
+
+    const navBtns = document.querySelectorAll(".nav_button");
+    navBtns[0].style.background = "var(--bg-secondary-clr)";
+    navBtns[4].style.outline = "3px solid var(--bg-secondary-clr)";
+
+    const navCloseBtnContainer = document.createElement("div");
+    navCloseBtnContainer.classList.add("navbar-closebtn_container");
+    navCloseBtnContainer.innerHTML = `<button class="nav-close_btn" >INCHIDE</button>`;
+    navBar.appendChild(navCloseBtnContainer);
+  });
+
+  const closeBtn = document.querySelector(".nav-close_btn");
+  console.log(closeBtn);
+  closeBtn.addEventListener("click", () => {
+    overLay.classList.add("hidden");
+    navBar.classList.add("hidden");
+    navBar.style.width = "0";
+  });
+}
+displayBurgerMenu();

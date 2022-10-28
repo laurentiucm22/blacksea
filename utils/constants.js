@@ -45,10 +45,10 @@ export const CARD_DATA = [
   {
     id: 5,
     cardPhotoSrc: "./assets/photo5.png",
-    cardTitle: "Card STAR FORTE",
-    cardParaOne: "Dobanda fixa: 7,5%",
-    cardParaTwo: "250 puncte STAR",
-    cardBtnText: "VEZI OFERTA",
+    cardTitle: "",
+    cardParaOne: "",
+    cardParaTwo: "",
+    cardBtnText: "",
   },
   {
     id: 6,
