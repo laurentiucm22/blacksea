@@ -423,10 +423,6 @@ body {
 }
 
 /* Footer */
-footer {
-  background-color: var(--white-bg-clr);
-}
-
 .logo-store-and-media_container {
   padding-top: 4rem;
   justify-content: space-between;
