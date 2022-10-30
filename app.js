@@ -135,10 +135,11 @@ function displayCardData() {
 });
   const removeCard = document.querySelectorAll(".card");
   const removeCardDesc = document.querySelectorAll(".card_description");
+  const cardImgContainer = document.querySelectorAll(".card-img_container");
 
   if (window.innerWidth < 500) {
     removeCard[4].style.display = "block";
-    removeCard[4].style.height = "100%";
+    cardImgContainer[4].style.height = "100%";
     removeCardDesc[4].style.display = "none";
   } else {
     removeCard[4].style.display = "none";
@@ -163,7 +164,7 @@ function displayBurgerMenu() {
 
   const navCloseBtnContainer = document.createElement("div");
   navCloseBtnContainer.classList.add("navbar-closebtn_container", "flex");
-  navCloseBtnContainer.innerHTML = `<button class="nav-close_btn ff-pt_sans" >INCHIDE</button>`;
+  navCloseBtnContainer.innerHTML = `<button class="nav-close_btn ff-pt_sans bg_white" >INCHIDE</button>`;
   navBar.appendChild(navCloseBtnContainer);
 
   burgerMenu.addEventListener("click", () => {
