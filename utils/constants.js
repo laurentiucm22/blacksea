@@ -21,7 +21,7 @@ export const CARD_DATA = [
   {
     id: 2,
     cardPhotoSrc: "./assets/photo2.png",
-    cardTitle: "Card de debit Mastercard Gold",
+    cardTitle: "Card Flying Blue Clasic",
     cardParaOne: "Dobanda fixa: 7,5%",
     cardParaTwo: "250 puncte STAR",
     cardBtnText: "VEZI OFERTA",

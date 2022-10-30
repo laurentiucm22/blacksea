@@ -10,12 +10,11 @@ const cardContainer = document.querySelector(".card_container");
 const burgerMenu = document.querySelector(".burger-menu_btn");
 const overLay = document.querySelector(".overlay");
 const navBar = document.querySelector(".nav_bar");
-console.log(navBar);
+const viewBtns = document.querySelectorAll(".view_btns");
 
 navBar.classList.add("hidden");
 overLay.classList.add("hidden");
 
-// Timer
 let textSec, textMin, textHour, textDay;
 
 function displayTimer() {
@@ -91,7 +90,7 @@ function displayHeaderLinks() {
     const headerBtnsContainer = document.createElement("div");
     headerBtnsContainer.classList.add("header-btns_container");
     headerBtnsContainer.innerHTML = `
-        <a href="#" class="btn-primary header-buttons_button">${item}</a>
+        <a href="#" class="btn-primary header-buttons_button ff-pt_sans">${item}</a>
       `;
     headerBtns.appendChild(headerBtnsContainer);
   });
@@ -110,20 +109,22 @@ function displayCardData() {
   // prettier-ignore
   cardData.map(({cardPhotoSrc, cardTitle, cardParaOne, cardParaTwo, cardBtnText}) => {
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "card-cube_view");
   card.innerHTML = `
     <div class="card-img_container flex_center">
       <img src="${cardPhotoSrc}" alt="card photo" width="100%" />
     </div>
     <div class="card_description">
-      <h2 class="card_title">${cardTitle}</h2>
+      <h2 class="card_title ff-sans_pro">${cardTitle}</h2>
       <div class="card_check card-border_top">
-        <span class="check_img"><img src="./assets/cardCheck.png" alt="check" /></span>
-        <p class="card-para width_full">${cardParaOne}</p>
+        <span class="check_img">
+          <img src="./assets/cardCheck.png" alt="check" />
+        </span>
+        <p class="card_para width_full ff-pt_sans">${cardParaOne}</p>
       </div>
       <div class="card_check card-border_top card-border_bottom">
         <span class="check_img"><img src="./assets/cardCheck.png" alt="check" /></span>
-        <p class="card-para width_full">${cardParaTwo}</p>
+        <p class="card-para width_full ff-pt_sans">${cardParaTwo}</p>
       </div>
       <div class="card-btn_container">
         <button class="btn-secondary card_btn" type="button">${cardBtnText}</button>
@@ -137,22 +138,21 @@ function displayCardData() {
 
   if (window.innerWidth < 500) {
     removeCard[4].style.display = "block";
+    removeCard[4].style.height = "100%";
     removeCardDesc[4].style.display = "none";
   } else {
     removeCard[4].style.display = "none";
   }
 }
-displayCardData();
+
 window.addEventListener("resize", displayCardData);
 
 function displayBurgerMenu() {
-  // navBarBtns.classList.add("hidden");
-
   headerBtnsText.map((item) => {
     const headerBtnsContainer = document.createElement("div");
     navBar.classList.add("hidden");
     headerBtnsContainer.innerHTML = `
-        <button type="button" class="btn-primary nav_button">${item}</button>
+        <button type="button" class="btn-primary nav_button ff-pt_sans">${item}</button>
       `;
     navBar.appendChild(headerBtnsContainer);
   });
@@ -162,8 +162,8 @@ function displayBurgerMenu() {
   navBtns[4].style.outline = "3px solid var(--bg-secondary-clr)";
 
   const navCloseBtnContainer = document.createElement("div");
-  navCloseBtnContainer.classList.add("navbar-closebtn_container");
-  navCloseBtnContainer.innerHTML = `<button class="nav-close_btn" >INCHIDE</button>`;
+  navCloseBtnContainer.classList.add("navbar-closebtn_container", "flex");
+  navCloseBtnContainer.innerHTML = `<button class="nav-close_btn ff-pt_sans" >INCHIDE</button>`;
   navBar.appendChild(navCloseBtnContainer);
 
   burgerMenu.addEventListener("click", () => {
@@ -200,5 +200,32 @@ function displayFooter() {
     footerLinksTwo.appendChild(footerDataTwo);
   });
 }
-
 displayFooter();
+
+let switchView = 0;
+
+function viewBtnsHandler() {
+  displayCardData();
+
+  switchView = switchView === 0 ? 1 : 0;
+
+  viewBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // prettier-ignore
+      if (btn.classList.contains("active") && btn.classList.contains("view-btn_burger")) {
+        btn.classList.remove("active");
+
+        // prettier-ignore
+      } else if (btn.classList.contains("active") && btn.classList.contains("view-btn_cube")) {
+        btn.classList.remove("active");
+
+        // prettier-ignore
+      } else if (btn.classList.contains("active") && btn.classList.contains("view-btn_rubic")) {
+        btn.classList.remove("active");
+      } else {
+        btn.classList.add("active");
+      }
+    });
+  });
+}
+viewBtnsHandler();

@@ -11,8 +11,8 @@
     <header>
       <div class="overlay"></div>
       <div class="nav_bar"></div>
-      <div class="media-top_bar">
-        <div class="top-icon_container content">
+      <div class="media-top_bar bg_primary">
+        <div class="top-icon_container content flex">
           <img src="./assets/top-icons/facebook.png" alt="facebook" />
           <img src="./assets/top-icons/twitter.png" alt="twitter" />
           <img src="./assets/top-icons/instagram.png" alt="instagram" />
@@ -21,12 +21,15 @@
           <img src="./assets/top-icons/linkedin.png" alt="linkedin" />
         </div>
       </div>
-      <div class="timer-and-logo_container content spacing">
-        <button class="header_btn outline_btn" type="button">
+      <div class="timer-and-logo_container content flex spacing">
+        <button
+          class="header_btn outline_btn flex_center bg_white ff-pt_sans"
+          type="button"
+        >
           <span><img src="./assets/arrow.svg" alt="arrow" /></span>
           Inapoi la bancatransilvania.ro
         </button>
-        <div class="logo-and-burgermenu_images_container">
+        <div class="logo-and-burgermenu_images_container flex">
           <img class="logo_header" src="./assets/Logo BT.svg" alt="logo" />
           <button class="burger-menu_btn" type="button">
             <img
@@ -36,61 +39,76 @@
             />
           </button>
         </div>
-        <div class="timer">
-          <div class="circle-wrap">
-            <div class="circle">
-              <p class="timer_value"></p>
+        <div class="timer flex">
+          <div class="circle-wrap flex_center">
+            <div class="circle flex_center">
+              <p class="timer_value ff-pt_sans"></p>
             </div>
-            <p class="value_desc">zile</p>
+            <p class="value_desc ff-pt_sans">zile</p>
           </div>
-          <div class="circle-wrap">
-            <div class="circle">
-              <p class="timer_value"></p>
+          <div class="circle-wrap flex_center">
+            <div class="circle flex_center">
+              <p class="timer_value ff-pt_sans"></p>
             </div>
-            <p class="value_desc">ore</p>
+            <p class="value_desc ff-pt_sans">ore</p>
           </div>
-          <div class="circle-wrap">
-            <div class="circle">
-              <p class="timer_value"></p>
+          <div class="circle-wrap flex_center">
+            <div class="circle flex_center">
+              <p class="timer_value ff-pt_sans"></p>
             </div>
-            <p class="value_desc">min</p>
+            <p class="value_desc ff-pt_sans">min</p>
           </div>
-          <div class="circle-wrap">
-            <div class="circle">
-              <p class="timer_value"></p>
+          <div class="circle-wrap flex_center">
+            <div class="circle flex_center">
+              <p class="timer_value ff-pt_sans"></p>
             </div>
-            <p class="value_desc">sec</p>
+            <p class="value_desc ff-pt_sans">sec</p>
           </div>
         </div>
       </div>
       <div class="header-img_container content"></div>
-      <div class="header-btns content"></div>
+      <div class="header-btns flex_center content"></div>
     </header>
     <main>
       <section class="content">
-        <div class="subtitle_container spacing">
-          <h2 class="sub_title">Some Medium Title</h2>
-          <p class="subtitle-para_one">
+        <div class="subtitle_container flex_center spacing">
+          <h2 class="sub_title ff-sans_pro">Some Medium Title</h2>
+          <p class="subtitle-para_one ff-pt_sans">
             Placeholder pentru text extraordinar de bun (hopefully)
           </p>
-          <p class="subtitle-para_two">
+          <p class="subtitle-para_two ff-pt_sans">
             Al doilea rand si mai fascinant decat prima!!!!!
           </p>
         </div>
       </section>
       <section class="content spacing">
-        <div class="view-icons_container">
+        <div class="view-icons_container flex">
           <div class="view-icon">
-            <img src="./assets/rubicView.png" alt="rubic cube view" />
+            <button
+              type="button"
+              class="view_btns flex_center view-btn_rubic bg_primary"
+            >
+              <img src="./assets/rubicView.svg" alt="rubic cube view" />
+            </button>
           </div>
           <div class="view-icon">
-            <img src="./assets/cubeView.png" alt="cube view" />
+            <button
+              type="button"
+              class="view_btns flex_center view-btn_cube bg_primary"
+            >
+              <img src="./assets/cubeView.svg" alt="cube view" />
+            </button>
           </div>
           <div class="view-icon">
-            <img src="./assets/burgerView.png" alt="burger view" />
+            <button
+              type="button"
+              class="view_btns flex_center view-btn_burger bg_primary active"
+            >
+              <img src="./assets/burgerView.svg" alt="burger view" />
+            </button>
           </div>
         </div>
-        <div class="card_container width_full"></div>
+        <div class="card_container width_full card-cube-view_container"></div>
       </section>
     </main>
     <footer class="width_full spacing">
@@ -115,10 +133,10 @@
         <div class="footer-links_two flex width_full"></div>
       </div>
       <div class="copy-right-and-help_container flex content spacing">
-        <div class="">
-          <div class="footer-support_container">
-            <p class="footer_support">Developer support</p>
-            <p class="footer_support">Securitatea informatiilor</p>
+        <div>
+          <div class="footer-support_container flex">
+            <p class="footer_support ff-pt_sans">Developer support</p>
+            <p class="footer_support ff-pt_sans">Securitatea informatiilor</p>
           </div>
           <a class="footer_copyright">
             &copy Copyright 2020 Banca Transilvania. Toate drepturile rezervate.
