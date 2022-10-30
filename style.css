@@ -364,7 +364,8 @@ body {
 }
 
 .card-img_container {
-  height: 300px;
+  max-height: 18.75rem;
+  overflow: hidden;
 }
 
 .card-img_container img {
