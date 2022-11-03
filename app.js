@@ -206,24 +206,14 @@ displayFooter();
 let switchView = 0;
 
 function viewBtnsHandler() {
-  switchView = switchView === 0 ? 1 : 0;
-
   viewBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
       // prettier-ignore
-      if (btn.classList.contains("active") && btn.classList.contains("view-btn_burger")) {
-        btn.classList.remove("active");
-
-        // prettier-ignore
-      } else if (btn.classList.contains("active") && btn.classList.contains("view-btn_cube")) {
-        btn.classList.remove("active");
-
-        // prettier-ignore
-      } else if (btn.classList.contains("active") && btn.classList.contains("view-btn_rubic")) {
-        btn.classList.remove("active");
-      } else {
-        btn.classList.add("active");
-      }
+      viewBtns.forEach((btn) => {
+        if(btn.classList[2] == e.currentTarget.classList[2]){
+          btn.classList.add("active");
+        } else btn.classList.remove("active")
+      })
     });
   });
 }

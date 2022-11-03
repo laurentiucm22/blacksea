@@ -289,14 +289,13 @@ body {
 .view-icon image {
   pointer-events: none;
 }
-
-/* .card {
+.card {
   display: flex;
   padding: 5rem 5rem;
   background-color: var(--card-bg-clr);
   margin-bottom: 1.25rem;
   border-radius: 1.25rem;
-} 
+}
 .card-img_container {
   width: 35%;
 }
@@ -345,9 +344,9 @@ body {
 .card_btn:hover {
   background-color: #d16deb;
   transition: background 300ms ease-in-out;
-} */
+}
 
-.card-cube-view_container {
+/* .card-cube-view_container {
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -421,7 +420,7 @@ body {
 .card_btn:hover {
   background-color: #d16deb;
   transition: background 300ms ease-in-out;
-}
+} */
 
 /* Footer */
 .logo-store-and-media_container {
