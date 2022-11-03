@@ -203,8 +203,6 @@ function displayFooter() {
 }
 displayFooter();
 
-let switchView = 0;
-
 function viewBtnsHandler() {
   viewBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
