@@ -145,7 +145,7 @@ function displayCardData() {
     removeCard[4].style.display = "none";
   }
 }
-
+displayCardData();
 window.addEventListener("resize", displayCardData);
 
 function displayBurgerMenu() {
@@ -186,14 +186,14 @@ function displayFooter() {
   const footerLinksOne = document.querySelector(".footer-links_one");
   const footerLinksTwo = document.querySelector(".footer-links_two");
 
-  footerData.slice(0, 6).map((item) => {
+  [...footerData].slice(0, 6).map((item) => {
     const footerDataOne = document.createElement("div");
     footerDataOne.innerHTML = `
         <p class="footer-links_one">${item}</p>
       `;
     footerLinksOne.appendChild(footerDataOne);
   });
-  footerData.slice(6, footerData.length).map((item) => {
+  [...footerData].slice(6, footerData.length).map((item) => {
     const footerDataTwo = document.createElement("div");
     footerDataTwo.innerHTML = `
         <p class="footer-links_two">${item}</p>
@@ -206,8 +206,6 @@ displayFooter();
 let switchView = 0;
 
 function viewBtnsHandler() {
-  displayCardData();
-
   switchView = switchView === 0 ? 1 : 0;
 
   viewBtns.forEach((btn) => {

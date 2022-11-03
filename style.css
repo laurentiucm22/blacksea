@@ -289,15 +289,14 @@ body {
 .view-icon image {
   pointer-events: none;
 }
-/* 
-.card {
+
+/* .card {
   display: flex;
   padding: 5rem 5rem;
   background-color: var(--card-bg-clr);
   margin-bottom: 1.25rem;
   border-radius: 1.25rem;
-}
-
+} 
 .card-img_container {
   width: 35%;
 }
@@ -383,6 +382,7 @@ body {
   padding-bottom: 2rem;
   text-align: center;
   font-size: var(--fs-card-xl);
+  font-weight: 600;
 }
 .card_para {
   font-size: var(--fs-regular);
@@ -435,6 +435,7 @@ body {
 .logo-and-store_container img {
   padding-right: 4rem;
 }
+
 .footer-media_container img {
   padding-left: 1rem;
   cursor: pointer;
@@ -628,7 +629,7 @@ body {
   }
   .card-img_container {
     min-width: 100%;
-    height: 300px;
+    height: 100%;
   }
   .card-img_container img {
     border-radius: 0;
